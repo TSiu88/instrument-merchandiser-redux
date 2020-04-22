@@ -2,10 +2,9 @@ import React from "react";
 
 function Footer() {
   const FooterStyle = {
-    marginTop: "50px",
     textAlign: "center",
     paddingBottom: "20px",
-    position: "fixed",
+    // position: "fixed",
     left: 0,
     bottom: 0,
     width: "100%",
@@ -13,7 +12,8 @@ function Footer() {
   };
   return (
     <div style={FooterStyle}>
-      <p>This is a sample footer</p>
+      <p>In-store Pickup available at:</p>
+      <p>The Treble-maker, 123 Crescendo Ave, Melody, WA 98XXX</p>
     </div>
   );
 }

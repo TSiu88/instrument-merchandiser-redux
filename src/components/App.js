@@ -8,7 +8,9 @@ function App() {
   return (
     <React.Fragment>
       <Header />
-      <InstrumentsControl />
+      <div className="container-fluid">
+        <InstrumentsControl />
+      </div>
       <Footer />
     </React.Fragment>
   );

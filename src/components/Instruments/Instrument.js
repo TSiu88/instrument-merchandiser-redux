@@ -3,39 +3,35 @@ import PropTypes from "prop-types";
 
 function Instrument(props) {
   const imageStyle = {
-    width: "200px",
-    height: "200px",
+    maxWidth: "200px",
   };
 
-  const inStockStyle = {
-    width: "300px",
-    // height: "300px",
+  const cardStyle = {
+    //width: "300px",
+    minWidth: "220px",
+    padding: 20,
+    margin: 10,
   };
 
   const outOfStockStyle = {
-    width: "300px",
     opacity: ".5",
-    // height: "300px",
   };
 
-  let cardStyle;
-
-  if (props.quantity === 0) {
-    cardStyle = outOfStockStyle;
-  } else {
-    cardStyle = inStockStyle;
-  }
+  const finalCardStyle =
+    props.quantity === 0 ? { ...cardStyle, ...outOfStockStyle } : cardStyle;
 
   return (
     <React.Fragment>
-      <div style={cardStyle}>
+      <div style={finalCardStyle} className="card">
         <img style={imageStyle} className="" src={props.image} />
-        <div className="">
-          <p>Type: {props.type}</p>
+        <div className="card-body">
+          {/* <p>Type: {props.type}</p> */}
           <h5>
             <strong>{props.itemName}</strong>
           </h5>
-          <p>{props.description}</p>
+          <p>
+            <em>{props.description}</em>
+          </p>
           <p>${props.price}</p>
           <p>Quantity: {props.quantity}</p>
         </div>
