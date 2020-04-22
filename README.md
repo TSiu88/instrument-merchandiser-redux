@@ -38,7 +38,7 @@ _README under construction_
 
 ### Component Diagram
 
-![Component Diagram](./component-diagram.png)
+![Component Diagram](./component-diagram-2.png)
 
 ## Setup/Installation Requirements
 

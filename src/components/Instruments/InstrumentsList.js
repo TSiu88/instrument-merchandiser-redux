@@ -1,5 +1,5 @@
 import React from "react";
-import Instrument from "./Instrument";
+import InstrumentTile from "./InstrumentTile";
 import PropTypes from "prop-types";
 
 function InstrumentsList(props) {
@@ -9,7 +9,7 @@ function InstrumentsList(props) {
     marginBottom: "100px",
     display: "grid",
     gridTemplateColumns: "1fr 1fr 1fr",
-    gridAutoColumns: "minmax(200px, auto)",
+    // gridAutoColumns: "minmax(200px, auto)",
     // gridGap: "50px",
   };
 
@@ -17,7 +17,7 @@ function InstrumentsList(props) {
     <React.Fragment>
       <div style={instrumentsStyle}>
         {props.instrumentList.map((instrument, index) => (
-          <Instrument
+          <InstrumentTile
             image={instrument.image}
             type={instrument.type}
             itemName={instrument.itemName}

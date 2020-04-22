@@ -24,6 +24,7 @@ function NewInstrumentForm(props) {
       price: event.target.price.value,
       quantity: event.target.quantity.value,
       image: event.target.image.value,
+      id: v4(),
     });
   }
 
@@ -31,70 +32,82 @@ function NewInstrumentForm(props) {
     <React.Fragment>
       <form onSubmit={handleNewInstrumentFormSubmission}>
         <div className="form-group">
-          <label for="type">Type: </label>
-          <input
-            style={formStyle}
-            className="form-control"
-            type="text"
-            name="type"
-            placeholder="Guitar, Piano, etc."
-            required
-          />
+          <label for="type">
+            Type:
+            <input
+              style={formStyle}
+              className="form-control"
+              type="text"
+              name="type"
+              placeholder="Guitar, Piano, etc."
+              required
+            />
+          </label>
         </div>
         <div className="form-group">
-          <label for="itemName">Name: </label>
-          <input
-            style={formStyle}
-            style={formStyle}
-            className="form-control"
-            type="text"
-            name="itemName"
-            placeholder="The Smooth Jazzophone"
-            required
-          />
+          <label for="itemName">
+            Name:
+            <input
+              style={formStyle}
+              style={formStyle}
+              className="form-control"
+              type="text"
+              name="itemName"
+              placeholder="The Smooth Jazzophone"
+              required
+            />
+          </label>
         </div>
         <div className="form-group">
-          <label for="description">Description: </label>
-          <textarea
-            style={formStyle}
-            className="form-control"
-            type="text"
-            name="description"
-            placeholder="Smooth jazz will be deployed, in three...two...one..."
-          />
+          <label for="description">
+            Description:
+            <textarea
+              style={formStyle}
+              className="form-control"
+              type="text"
+              name="description"
+              placeholder="Smooth jazz will be deployed, in three...two...one..."
+            />
+          </label>
         </div>
         <div className="form-group">
-          <label for="price">Price: </label>
-          <input
-            style={formStyle}
-            className="form-control"
-            type="number"
-            step="0.01"
-            name="price"
-            placeholder="300.00"
-            required
-          />
+          <label for="price">
+            Price:
+            <input
+              style={formStyle}
+              className="form-control"
+              type="number"
+              step="0.01"
+              name="price"
+              placeholder="300.00"
+              required
+            />
+          </label>
         </div>
         <div className="form-group">
-          <label for="quantity">Quantity: </label>
-          <input
-            style={formStyle}
-            className="form-control"
-            type="number"
-            name="quantity"
-            placeholder="5"
-            required
-          />
+          <label for="quantity">
+            Quantity:
+            <input
+              style={formStyle}
+              className="form-control"
+              type="number"
+              name="quantity"
+              placeholder="5"
+              required
+            />
+          </label>
         </div>
         <div className="form-group">
-          <label for="image">Image URL: </label>
-          <input
-            style={formStyle}
-            className="form-control"
-            type="text"
-            name="image"
-            placeholder="http://image.com/url-location.jpg"
-          />
+          <label for="image">
+            Image URL:
+            <input
+              style={formStyle}
+              className="form-control"
+              type="text"
+              name="image"
+              placeholder="http://image.com/picture-url.jpg"
+            />
+          </label>
         </div>
         <button className="btn btn-light" type="submit">
           Add Instrument

@@ -1,5 +1,5 @@
 import React from "react";
-import Instrument from "./Instrument";
+import InstrumentTile from "./InstrumentTile";
 import InstrumentsList from "./InstrumentsList";
 import NewInstrumentForm from "./NewInstrumentForm";
 import InstrumentDetails from "./InstrumentDetails";
@@ -56,7 +56,7 @@ const masterInstrumentList = [
   {
     type: "Saxophone",
     itemName: "The Out-of-Stocksophone",
-    description: "this is an example of an out-of-stock item",
+    description: "this is an example of an out-of-stock item.  It's over 9000!",
     price: 9000.99,
     quantity: 0,
     image:
@@ -92,6 +92,7 @@ class InstrumentsControl extends React.Component {
       newInstrument
     );
     this.setState({ masterInstrumentList: newMasterInstrumentList });
+    this.setState({ formVisibleOnPage: false });
   };
 
   setVisibility = () => {
@@ -106,7 +107,9 @@ class InstrumentsControl extends React.Component {
       };
     } else {
       return {
-        component: <InstrumentsList instrumentList={masterInstrumentList} />,
+        component: (
+          <InstrumentsList instrumentList={this.state.masterInstrumentList} />
+        ),
         buttonText: "Add Instrument",
       };
     }
@@ -119,7 +122,7 @@ class InstrumentsControl extends React.Component {
       <React.Fragment>
         <div style={controlStyle}>
           <p>**DEV: This is the instrument control panel**</p>
-          <div style={buttonStyle} className="btn-group">
+          <div style={buttonStyle} className="btn-group text-center">
             <button
               className="btn btn-light"
               onClick={this.handleToggleFormVisibility}
