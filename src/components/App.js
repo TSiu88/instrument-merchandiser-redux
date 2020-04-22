@@ -8,7 +8,7 @@ function App() {
   return (
     <React.Fragment>
       <Header />
-      {/* <InstrumentsControl /> */}
+      <InstrumentsControl />
       <Footer />
     </React.Fragment>
   );

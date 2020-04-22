@@ -1,7 +1,20 @@
 import React from "react";
 
 function Header() {
-  return <h1>This is a sample header</h1>;
+  const headerStyle = {
+    textAlign: "center",
+    marginBottom: 50,
+    paddingTop: 40,
+  };
+
+  return (
+    <React.Fragment>
+      <div style={headerStyle}>
+        <h1>An Instrument Store</h1>
+        <h3>For all your instrumental needs!</h3>
+      </div>
+    </React.Fragment>
+  );
 }
 
 export default Header;
