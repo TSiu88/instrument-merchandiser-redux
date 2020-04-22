@@ -2,6 +2,7 @@ import React from "react";
 import Instrument from "./Instrument";
 import InstrumentsList from "./InstrumentsList";
 import NewInstrumentForm from "./NewInstrumentForm";
+import InstrumentDetails from "./InstrumentDetails";
 import { v4 } from "uuid";
 
 const masterInstrumentList = [
@@ -27,7 +28,7 @@ const masterInstrumentList = [
   {
     type: "Saxophone",
     itemName: "The In-Stocksophone",
-    description: "this is an example of an out-of-stock item",
+    description: "this is an example of an in-stock item",
     price: 699.99,
     quantity: 8,
     image:
@@ -56,36 +57,78 @@ const masterInstrumentList = [
     type: "Saxophone",
     itemName: "The Out-of-Stocksophone",
     description: "this is an example of an out-of-stock item",
-    price: 699.99,
+    price: 9000.99,
     quantity: 0,
     image:
       "https://cdn.shoplightspeed.com/shops/612125/files/5871002/image.jpg",
   },
 ];
 
+const controlStyle = {
+  marginBottom: 40,
+  //  textAlign: "center",
+};
+
+const buttonStyle = { contentAlign: "center" };
+
 class InstrumentsControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // masterInstrumentList: [],
+      masterInstrumentList: masterInstrumentList,
       selectedInstrument: null,
+      formVisibleOnPage: false,
     };
   }
 
-  // handleAddingNewInstrumentToList = (newInstrument) => {
-  //   const newMasterInstrumentList = this.state.masterInstrumentList.concat(
-  //     newInstrument
-  //   );
-  //   this.setState({ masterInstrumentList: newMasterInstrumentList });
-  // };
+  handleToggleFormVisibility = () => {
+    this.setState((prevState) => ({
+      formVisibleOnPage: !prevState.formVisibleOnPage,
+    }));
+  };
+
+  handleAddingNewInstrumentToList = (newInstrument) => {
+    const newMasterInstrumentList = this.state.masterInstrumentList.concat(
+      newInstrument
+    );
+    this.setState({ masterInstrumentList: newMasterInstrumentList });
+  };
+
+  setVisibility = () => {
+    if (this.state.formVisibleOnPage) {
+      return {
+        component: (
+          <NewInstrumentForm
+            onAddInstrument={this.handleAddingNewInstrumentToList}
+          />
+        ),
+        buttonText: "Return to Instruments List",
+      };
+    } else {
+      return {
+        component: <InstrumentsList instrumentList={masterInstrumentList} />,
+        buttonText: "Add Instrument",
+      };
+    }
+  };
 
   render() {
-    let currentlyVisibleState = null;
-    currentlyVisibleState = <Instrument />;
+    // let currentlyVisibleState = null;
+    const currentlyVisibleState = this.setVisibility();
     return (
       <React.Fragment>
-        <p>This is the instrument control panel</p>
-        <InstrumentsList instrumentList={masterInstrumentList} />
+        <div style={controlStyle}>
+          <p>**DEV: This is the instrument control panel**</p>
+          <div style={buttonStyle} className="btn-group">
+            <button
+              className="btn btn-light"
+              onClick={this.handleToggleFormVisibility}
+            >
+              {currentlyVisibleState.buttonText}
+            </button>
+          </div>
+          {currentlyVisibleState.component}
+        </div>
       </React.Fragment>
     );
   }
