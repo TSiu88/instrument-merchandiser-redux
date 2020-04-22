@@ -7,7 +7,7 @@ import { v4 } from "uuid";
 
 const masterInstrumentList = [
   {
-    id: "hello testing testing",
+    id: v4(),
     type: "Guitar",
     itemName: "The Guitarrro",
     description: "hard-coded guitar",
@@ -81,13 +81,24 @@ class InstrumentsControl extends React.Component {
       masterInstrumentList: masterInstrumentList,
       selectedInstrument: null,
       formVisibleOnPage: false,
+      quantityChanged: false,
     };
   }
 
   handleToggleFormVisibility = () => {
-    this.setState((prevState) => ({
-      formVisibleOnPage: !prevState.formVisibleOnPage,
-    }));
+    if (this.state.selectedInstrument != null) {
+      this.setState((prevState) => ({
+        selectedInstrument: null,
+      }));
+    } else {
+      this.setState((prevState) => ({
+        formVisibleOnPage: !prevState.formVisibleOnPage,
+      }));
+    }
+  };
+
+  handleChangingQuantity = (newQuantity) => {
+    this.setState({ quantity: newQuantity });
   };
 
   handleChangingSelectedInstrument = (id) => {
@@ -107,7 +118,16 @@ class InstrumentsControl extends React.Component {
   };
 
   setVisibility = () => {
-    if (this.state.formVisibleOnPage) {
+    if (this.state.selectedInstrument != null) {
+      // READ ONE: ticket detail view
+      return {
+        component: (
+          <InstrumentDetail instrument={this.state.selectedInstrument} />
+        ),
+        buttonText: "Return to Instruments List",
+      };
+    } else if (this.state.formVisibleOnPage) {
+      // CREATE: Add new instrument form view
       return {
         component: (
           <NewInstrumentForm
@@ -116,10 +136,20 @@ class InstrumentsControl extends React.Component {
         ),
         buttonText: "Return to Instruments List",
       };
-    } else {
+    } else if (this.state.quantityChanged) {
       return {
         component: (
-          <InstrumentsList instrumentList={this.state.masterInstrumentList} />
+          <InstrumentsList onQuantityChanged={this.handleChangingQuantity} />
+        ),
+      };
+    } else {
+      // READ ALL: "index" grid view
+      return {
+        component: (
+          <InstrumentsList
+            onInstrumentSelect={this.handleChangingSelectedInstrument}
+            instrumentList={this.state.masterInstrumentList}
+          />
         ),
         buttonText: "Add Instrument",
       };
@@ -127,8 +157,6 @@ class InstrumentsControl extends React.Component {
   };
 
   render() {
-    console.log(v4());
-    // let currentlyVisibleState = null;
     const currentlyVisibleState = this.setVisibility();
     return (
       <React.Fragment>

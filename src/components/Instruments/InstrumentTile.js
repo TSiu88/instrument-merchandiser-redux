@@ -11,6 +11,7 @@ function InstrumentTile(props) {
     padding: 20,
     margin: 10,
   };
+
   const outOfStockStyle = {
     opacity: ".5",
   };
@@ -19,7 +20,7 @@ function InstrumentTile(props) {
 
   function handleQuantityDecrease(event) {
     event.preventDefault();
-    // props.onQuantityDecrease({quantity: event.target.})
+    // props.onQuantityDecrease({quantity: event.target.quantity.value -1})
   }
   function handleQuantityIncrease(event) {
     event.preventDefault();
@@ -27,7 +28,11 @@ function InstrumentTile(props) {
 
   return (
     <React.Fragment>
-      <div style={finalCardStyle} className="card">
+      <div
+        onClick={() => props.whenInstrumentClicked(props.id)}
+        style={finalCardStyle}
+        className="card"
+      >
         <img style={imageStyle} className="" src={props.image} />
         <div className="card-body">
           {/* <p>Type: {props.type}</p> */}
@@ -38,7 +43,7 @@ function InstrumentTile(props) {
             <em>{props.description}</em>
           </p>
           <p>
-            ${props.price} SKU#{props.key}
+            ${props.price} SKU#{props.id}
           </p>
           <p>Items in Stock: {props.quantity}</p>
           <div className="input-group">
@@ -68,12 +73,14 @@ function InstrumentTile(props) {
 }
 
 InstrumentTile.propTypes = {
+  whenInstrumentClicked: PropTypes.func,
   type: PropTypes.string,
   itemName: PropTypes.string,
   description: PropTypes.string,
   price: PropTypes.number,
   quantity: PropTypes.number,
   image: PropTypes.string,
+  id: PropTypes.string,
   key: PropTypes.string,
 };
 

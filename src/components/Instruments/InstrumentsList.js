@@ -18,12 +18,14 @@ function InstrumentsList(props) {
       <div style={instrumentsStyle}>
         {props.instrumentList.map((instrument) => (
           <InstrumentTile
+            whenInstrumentClicked={props.onInstrumentSelect}
             image={instrument.image}
             type={instrument.type}
             itemName={instrument.itemName}
             description={instrument.description}
             price={instrument.price}
             quantity={instrument.quantity}
+            id={instrument.id}
             key={instrument.id}
           />
         ))}
@@ -34,6 +36,8 @@ function InstrumentsList(props) {
 
 InstrumentsList.propTypes = {
   instrumentList: PropTypes.array,
+  onInstrumentSelect: PropTypes.func,
+  onQuantityChanged: PropTypes.func,
 };
 
 export default InstrumentsList;
