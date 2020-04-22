@@ -3,7 +3,7 @@ import Instrument from "./Instrument";
 import PropTypes from "prop-types";
 
 function InstrumentsList(props) {
-  return <React.Fragment></React.Fragment>;
+  return <React.Fragment>{/* {props.} */}</React.Fragment>;
 }
 
 export default InstrumentsList;
