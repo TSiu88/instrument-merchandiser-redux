@@ -16,7 +16,7 @@ function InstrumentsList(props) {
   return (
     <React.Fragment>
       <div style={instrumentsStyle}>
-        {props.instrumentList.map((instrument, index) => (
+        {props.instrumentList.map((instrument) => (
           <InstrumentTile
             image={instrument.image}
             type={instrument.type}
@@ -24,7 +24,7 @@ function InstrumentsList(props) {
             description={instrument.description}
             price={instrument.price}
             quantity={instrument.quantity}
-            key={index}
+            key={instrument.id}
           />
         ))}
       </div>

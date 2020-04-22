@@ -17,42 +17,13 @@ function InstrumentTile(props) {
   const finalCardStyle =
     props.quantity === 0 ? { ...cardStyle, ...outOfStockStyle } : cardStyle;
 
-  // const storeState = (initialState) => {
-  //   let currentState = { initialState };
-  //   return (stateChangeFunction) => {
-  //     const newState = stateChangeFunction(currentState);
-  //     currentState = { ...newState };
-  //     return newState;
-  //   };
-  // };
-
-  // const buyQuantityStateChanger = storeState();
-
-  // const changeState = (prop) => {
-  //   return (value) => {
-  //     return (state) => ({
-  //       ...state,
-  //       [prop]: (state[prop] || 0) + value,
-  //     });
-  //   };
-  // };
-
-  // const quantityChange = changeState("quantityToBuy");
-
-  // const handleQuantityDecrease = quantityChange(-1);
-  // const quantityDefault = quantityChange(0);
-  // const handleQuantityIncrease = quantityChange(1);
-
-  // const currentQuantity = () => { return(state) => {state.quantityChange};return({...state})});
-
-  let currentQuantity = 0;
-
-  const setCurrentQuantity = (val) => {
-    currentQuantity += val;
-  };
-
-  const increaseQuantity = setCurrentQuantity(1);
-  const decreaseQuantity = setCurrentQuantity(-1);
+  function handleQuantityDecrease(event) {
+    event.preventDefault();
+    // props.onQuantityDecrease({quantity: event.target.})
+  }
+  function handleQuantityIncrease(event) {
+    event.preventDefault();
+  }
 
   return (
     <React.Fragment>
@@ -66,25 +37,27 @@ function InstrumentTile(props) {
           <p>
             <em>{props.description}</em>
           </p>
-          <p>${props.price}</p>
+          <p>
+            ${props.price} SKU#{props.key}
+          </p>
           <p>Items in Stock: {props.quantity}</p>
           <div className="input-group">
             <div className="input-group-prepend">
               <button
-                className="btn btn-sm btn-secondary"
-                onClick={decreaseQuantity}
+                className="btn btn-secondary"
+                onClick={handleQuantityDecrease}
               >
                 -
-              </button>{" "}
+              </button>
             </div>
-            <label className="input-group-text">{currentQuantity}</label>
+            <label className="input-group-text">{props.quantity}</label>
             <div className="input-group-append">
               <button
-                className="btn btn-sm btn-secondary"
-                onClick={increaseQuantity}
+                className="btn btn-secondary"
+                onClick={handleQuantityIncrease}
               >
                 +
-              </button>{" "}
+              </button>
             </div>
           </div>
           <button>Add to Cart</button>
@@ -101,6 +74,7 @@ InstrumentTile.propTypes = {
   price: PropTypes.number,
   quantity: PropTypes.number,
   image: PropTypes.string,
+  key: PropTypes.string,
 };
 
 export default InstrumentTile;
