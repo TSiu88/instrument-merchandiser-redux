@@ -20,23 +20,25 @@ function InstrumentTile(props) {
 
   function handleQuantityDecrease(event) {
     event.preventDefault();
-    // props.onQuantityDecrease({quantity: event.target.quantity.value -1})
+    props.onQuantityChanged({ quantity: event.target.quantity.value - 1 });
   }
   function handleQuantityIncrease(event) {
     event.preventDefault();
+    // props.onQuantityChanged({quantity: event.target.quantity.value +1})
   }
 
   return (
     <React.Fragment>
-      <div
-        onClick={() => props.whenInstrumentClicked(props.id)}
-        style={finalCardStyle}
-        className="card"
-      >
-        <img style={imageStyle} className="" src={props.image} />
+      <div style={finalCardStyle} className="card">
+        <img
+          onClick={() => props.whenInstrumentClicked(props.id)}
+          style={imageStyle}
+          className=""
+          src={props.image}
+        />
         <div className="card-body">
           {/* <p>Type: {props.type}</p> */}
-          <h5>
+          <h5 onClick={() => props.whenInstrumentClicked(props.id)}>
             <strong>{props.itemName}</strong>
           </h5>
           <p>
