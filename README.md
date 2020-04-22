@@ -1,4 +1,4 @@
-# _[Assignment Name](https://github.com/TSiu88/#)_
+# _[Instrument Merchandiser](https://github.com/KristaRutz/instrument-merchandiser)_
 
 #### _React Application with full CRUD Functionality, 04.22.2020_
 
@@ -7,8 +7,8 @@
 <!-- [![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive) -->
 
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
-![LastCommit](https://img.shields.io/github/last-commit/tsiu88/wordcounter-csharp)
-![Languages](https://img.shields.io/github/languages/top/tsiu88/wordcounter-csharp)
+![LastCommit](https://img.shields.io/github/last-commit/KristaRutz/instrument-merchandiser)
+![Languages](https://img.shields.io/github/languages/top/KristaRutz/instrument-merchandiser)
 [![MIT license](https://img.shields.io/badge/License-MIT-orange.svg)](https://lbesson.mit-license.org/)
 
 ---
@@ -54,7 +54,7 @@ _README under construction_
 _This page may be viewed by:_
 
 1. Download and install Node.js from the [official website](https://nodejs.org/en/download/)
-2. Clone the [repository](https://github.com/TSiu88/#.git) from my [GitHub page](https://github.com/TSiu88)
+2. Clone the [repository](https://github.com/KristaRutz/instrument-merchandiser.git) from my [GitHub page](https://github.com/KristaRutz)
 3. Use a command line/Bash to move to the project directory with `cd project-directory`
 4. Run `npm install` to get all dependencies.
 5. Run `npm run start` to start up the program
