@@ -18,14 +18,16 @@ function InstrumentTile(props) {
   const finalCardStyle =
     props.quantity === 0 ? { ...cardStyle, ...outOfStockStyle } : cardStyle;
 
-  const outOfStock = {
-    if (props.quantity <= 0){
+  const optionA = "Out of stock";
+  const optionB = `Items in Stock: ${props.quantity}`;
 
+  const situationOnStock = () => {
+    if (props.quantity <= 0) {
+      return optionA;
+    } else {
+      return optionB;
     }
-    else{
-      <p>Items in Stock: {props.quantity}</p>
-    }
-  }
+  };
 
   return (
     <React.Fragment>
@@ -45,11 +47,10 @@ function InstrumentTile(props) {
             <p>
               <em>{props.description}</em>
             </p>
-            <p>
-              ${props.price} SKU#{props.id}
-            </p>
+            <p>${props.price}</p>
           </div>
-          <p>Items in Stock: {props.quantity}</p>
+          {/* <p>Items in Stock: {props.quantity}</p> */}
+          <p>{situationOnStock()}</p>
           <div className="input-group">
             <div className="input-group-prepend">
               <button

@@ -6,6 +6,7 @@ function InstrumentDetail(props) {
 
   const imageStyle = {
     width: "400px",
+    margin: 40,
   };
 
   const detailsStyle = {
@@ -18,6 +19,7 @@ function InstrumentDetail(props) {
         <h1>{instrument.itemName}</h1>
         <img style={imageStyle} src={instrument.image} />
         <h4>Type of Instrument: {instrument.type}</h4>
+        <p>SKU#: {instrument.id}</p>
         <p>Description: {instrument.description}</p>
         <p>Price: ${instrument.price}</p>
         <p>Quantity in Stock: {instrument.quantity}</p>

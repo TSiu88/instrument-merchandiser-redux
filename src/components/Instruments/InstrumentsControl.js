@@ -109,6 +109,9 @@ class InstrumentsControl extends React.Component {
   };
 
   handleAddingNewInstrumentToList = (newInstrument) => {
+    if (newInstrument.image == "") {
+      newInstrument.image = "./default-img.jpeg";
+    }
     const newMasterInstrumentList = this.state.masterInstrumentList.concat({
       id: v4(),
       ...newInstrument,
@@ -224,7 +227,6 @@ class InstrumentsControl extends React.Component {
     return (
       <React.Fragment>
         <div style={controlStyle}>
-          <p className="lead">**DEV: This is the instrument control panel**</p>
           <div style={buttonStyle} className="btn-group text-center">
             <button
               className="btn btn-light col-2"

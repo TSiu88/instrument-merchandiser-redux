@@ -4,9 +4,7 @@
 
 #### By _**Tiffany Siu, Krista Rutz, Andriy Veremyeyev**_
 
-<!-- [![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive) -->
-
-[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+[![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
 ![LastCommit](https://img.shields.io/github/last-commit/KristaRutz/instrument-merchandiser)
 ![Languages](https://img.shields.io/github/languages/top/KristaRutz/instrument-merchandiser)
 [![MIT license](https://img.shields.io/badge/License-MIT-orange.svg)](https://lbesson.mit-license.org/)
@@ -39,8 +37,6 @@ For our application, this site is selling musical instruments. It is for both th
 
 **A deployed version of this application can be found [here](https://inspiring-leavitt-4e8785.netlify.app/).**
 
-<!-- _Detailed desc w/ purpose/usage, what does, motivation to create, why exists, other info for users/developers to have_ -->
-
 ### Component Diagram
 
 ![Component Diagram](./component-diagram-2.png)
@@ -51,8 +47,8 @@ Build a website for selling merchandise for a band, author, sports team, or any 
 
 A user should be able to do the following:
 
-- [ ] Create, Read, Update and Delete items in the store. Items should have fields for name, description, and quantity (along with any other fields you wish to add).
-- [ ] Increase or decrease the quantity of an item in the store. For instance, if a user clicks "Buy", the quantity will decrease by one. If a user clicks "Restock", it will increment by a specified number.
+- [x] Create, Read, Update and Delete items in the store. Items should have fields for name, description, and quantity (along with any other fields you wish to add).
+- [x] Increase or decrease the quantity of an item in the store. For instance, if a user clicks "Buy", the quantity will decrease by one. If a user clicks "Restock", it will increment by a specified number.
 - [x] When the quantity of an item is reduced to 0, the item should say "Out of Stock". A user should not be able to reduce the quantity of an item below 0.
 
 Further Exploration
@@ -135,7 +131,7 @@ _There are currently no known bugs in this program_
 
 ## Support and contact details
 
-_If there are any question or concerns please contact us at our emails: [Tiffany](mailto:tsiu88@gmail.com), [Name](mailto:#), and [Name](mailto:#). Thank you._
+_If there are any question or concerns please contact us at our emails: [Tiffany](mailto:tsiu88@gmail.com), [Krista](mailto:#), and [Andriy](mailto:#). Thank you._
 
 ### License
 
