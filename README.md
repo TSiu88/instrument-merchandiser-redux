@@ -1,4 +1,4 @@
-# _[Instrument Merchandiser](https://inspiring-leavitt-4e8785.netlify.app/)_
+# _[Instrument Merchandiser](https://treblemakersmusic.netlify.app/)_
 
 #### _React Application with full CRUD Functionality, 04.22.2020_
 
@@ -35,7 +35,7 @@ This application was created for an assignment for the Epicodus Intro to Program
 
 For our application, this site is selling musical instruments. It is for both the seller (with the ability to add, edit, and delete instruments from the list) and a buyer (with the ability to buy instruments). This site currently does not have the authentication to differentiate between the two types of users and all users currently have the ability to do all functions due to this assignment being focused on learning how to code the different functionalities.
 
-**A deployed version of this application can be found [here](https://inspiring-leavitt-4e8785.netlify.app/).**
+**A deployed version of this application can be found [here](https://treblemakersmusic.netlify.app).**
 
 ### Component Diagram
 
@@ -133,7 +133,7 @@ _There are currently no known bugs in this program_
 
 ## Support and contact details
 
-_If there are any question or concerns please contact us at our emails: [Tiffany](mailto:tsiu88@gmail.com), [Krista](mailto:#), and [Andriy](mailto:#). Thank you._
+_If there are any question or concerns please contact us at our emails: [Tiffany](mailto:tsiu88@gmail.com), [Krista](mailto:rutzkri000@gmail.com), and [Andriy](mailto:belyybrat@gmail.com). Thank you._
 
 ### License
 

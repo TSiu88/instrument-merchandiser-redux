@@ -85,6 +85,7 @@ function EditInstrumentForm(props) {
               type="number"
               name="quantity"
               defaultValue={ticket.quantity}
+              min="0"
               required
             />
           </label>
