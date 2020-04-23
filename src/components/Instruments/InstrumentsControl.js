@@ -1,10 +1,10 @@
 import React from "react";
-import InstrumentTile from "./InstrumentTile";
 import InstrumentsList from "./InstrumentsList";
 import NewInstrumentForm from "./NewInstrumentForm";
 import InstrumentDetail from "./InstrumentDetail";
 import { v4 } from "uuid";
 
+/* Seed Data */
 const masterInstrumentList = [
   {
     id: v4(),
@@ -68,33 +68,51 @@ const masterInstrumentList = [
   },
 ];
 
+/* Styles */
 const controlStyle = {
   marginBottom: 40,
 };
+const buttonStyle = {
+  margin: "auto",
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "center",
+};
 
-const buttonStyle = { contentAlign: "center" };
-
+/* 
+Instruments Control
+ */
 class InstrumentsControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       masterInstrumentList: masterInstrumentList,
       selectedInstrument: null,
-      formVisibleOnPage: false,
+      addNewInstrumentFormVisible: false,
+      editInstrumentFormVisible: false,
       quantityChanged: false,
     };
   }
 
-  handleToggleFormVisibility = () => {
+  handleToggleNewInstrumentForm = () => {
     if (this.state.selectedInstrument != null) {
-      this.setState((prevState) => ({
+      this.setState(() => ({
         selectedInstrument: null,
       }));
     } else {
       this.setState((prevState) => ({
-        formVisibleOnPage: !prevState.formVisibleOnPage,
+        addNewInstrumentFormVisible: !prevState.addNewInstrumentFormVisible,
       }));
     }
+  };
+
+  handleAddingNewInstrumentToList = (newInstrument) => {
+    const newMasterInstrumentList = this.state.masterInstrumentList.concat({
+      id: v4(),
+      ...newInstrument,
+    });
+    this.setState({ masterInstrumentList: newMasterInstrumentList });
+    this.setState({ addNewInstrumentFormVisible: false });
   };
 
   handleChangingQuantity = (id, newQuantity) => {
@@ -116,25 +134,40 @@ class InstrumentsControl extends React.Component {
     this.setState({ selectedInstrument: selectedInstrument });
   };
 
-  handleAddingNewInstrumentToList = (newInstrument) => {
-    const newMasterInstrumentList = this.state.masterInstrumentList.concat({
-      id: v4(), // new code
-      ...newInstrument, // edited this so we can have IDs, will this work?
-    });
+  handleEditingInstrument = () => {
+    //hmm
+  };
+
+  handleDeletingInstrument = (id) => {
+    const newMasterInstrumentList = this.state.masterInstrumentList.filter(
+      (instrument) => instrument.id !== id
+    );
     this.setState({ masterInstrumentList: newMasterInstrumentList });
-    this.setState({ formVisibleOnPage: false });
+    this.setState({ selectedInstrument: null });
   };
 
   setVisibility = () => {
-    if (this.state.selectedInstrument != null) {
-      // READ ONE: ticket detail view
+    if (this.state.editInstrumentFormVisible) {
+      // UPDATE: Edit instrument form view
       return {
         component: (
-          <InstrumentDetail instrument={this.state.selectedInstrument} />
+          <EditInstrumentForm onEditInstrument={this.handleEditInstrument} />
         ),
         buttonText: "Return to Instruments List",
       };
-    } else if (this.state.formVisibleOnPage) {
+    } else if (this.state.selectedInstrument != null) {
+      // READ ONE: instrument detail view
+      // DELETE: Add delete button to detail view
+      return {
+        component: (
+          <InstrumentDetail
+            instrument={this.state.selectedInstrument}
+            onClickingDelete={this.handleDeletingInstrument}
+          />
+        ),
+        buttonText: "Return to Instruments List",
+      };
+    } else if (this.state.addNewInstrumentFormVisible) {
       // CREATE: Add new instrument form view
       return {
         component: (
@@ -177,8 +210,8 @@ class InstrumentsControl extends React.Component {
           <p className="lead">**DEV: This is the instrument control panel**</p>
           <div style={buttonStyle} className="btn-group text-center">
             <button
-              className="btn btn-light"
-              onClick={this.handleToggleFormVisibility}
+              className="btn btn-light col-2"
+              onClick={this.handleToggleNewInstrumentForm}
             >
               {currentlyVisibleState.buttonText}
             </button>

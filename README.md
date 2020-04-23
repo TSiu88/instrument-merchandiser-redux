@@ -33,7 +33,9 @@
 
 ## Description
 
-_README under construction_
+This application was created for an assignment for the Epicodus Intro to Programming and C#/React course. This was to practice adding CRUD functionality to a React application.
+
+For our application, this site is selling musical instruments. It is for both the seller (with the ability to add, edit, and delete instruments from the list) and a buyer (with the ability to buy instruments). This site currently does not have the authentication to differentiate between the two types of users and all users currently have the ability to do all functions due to this assignment being focused on learning how to code the different functionalities.
 
 **A deployed version of this application can be found [here](https://inspiring-leavitt-4e8785.netlify.app/).**
 
@@ -49,19 +51,15 @@ Build a website for selling merchandise for a band, author, sports team, or any 
 
 A user should be able to do the following:
 
-[ ] Create, Read, Update and Delete items in the store. Items should have fields for name, description, and quantity (along with any other fields you wish to add).
-
-[ ] Increase or decrease the quantity of an item in the store. For instance, if a user clicks "Buy", the quantity will decrease by one. If a user clicks "Restock", it will increment by a specified number.
-
-[ ] When the quantity of an item is reduced to 0, the item should say "Out of Stock". A user should not be able to reduce the quantity of an item below 0.
+- [ ] Create, Read, Update and Delete items in the store. Items should have fields for name, description, and quantity (along with any other fields you wish to add).
+- [ ] Increase or decrease the quantity of an item in the store. For instance, if a user clicks "Buy", the quantity will decrease by one. If a user clicks "Restock", it will increment by a specified number.
+- [x] When the quantity of an item is reduced to 0, the item should say "Out of Stock". A user should not be able to reduce the quantity of an item below 0.
 
 Further Exploration
 
-[ ] Create a Cart component. When a user clicks "Buy", the specified item should be added to the cart.
-
-[ ] A user should be able to view and remove items from the cart.
-
-[ ] Create a widget that shows the number of items in the cart. This widget should be updated when items are added to the cart.
+- [ ] Create a Cart component. When a user clicks "Buy", the specified item should be added to the cart.
+- [ ] A user should be able to view and remove items from the cart.
+- [ ] Create a widget that shows the number of items in the cart. This widget should be updated when items are added to the cart.
 
 ## Setup/Installation Requirements
 
