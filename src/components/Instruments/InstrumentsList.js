@@ -19,6 +19,7 @@ function InstrumentsList(props) {
         {props.instrumentList.map((instrument) => (
           <InstrumentTile
             whenInstrumentClicked={props.onInstrumentSelect}
+            whenQuantityChanged={props.onQuantityChanged}
             image={instrument.image}
             type={instrument.type}
             itemName={instrument.itemName}

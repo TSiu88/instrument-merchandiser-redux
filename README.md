@@ -1,4 +1,4 @@
-# _[Instrument Merchandiser](https://github.com/KristaRutz/instrument-merchandiser)_
+# _[Instrument Merchandiser](https://inspiring-leavitt-4e8785.netlify.app/)_
 
 #### _React Application with full CRUD Functionality, 04.22.2020_
 
@@ -17,6 +17,7 @@
 
 1. [Description](#description)
    - [Component Diagram](#component-diagram)
+   - [Assignment Prompt](#assignment-prompt)
 2. [Setup/Installation Requirements](#setup/installation-requirements)
    - [Requirements to Run](#requirements-to-run)
    - [Instructions](#instructions)
@@ -34,11 +35,33 @@
 
 _README under construction_
 
+**A deployed version of this application can be found [here](https://inspiring-leavitt-4e8785.netlify.app/).**
+
 <!-- _Detailed desc w/ purpose/usage, what does, motivation to create, why exists, other info for users/developers to have_ -->
 
 ### Component Diagram
 
 ![Component Diagram](./component-diagram-2.png)
+
+### Assignment Prompt
+
+Build a website for selling merchandise for a band, author, sports team, or any other purveyor that interests you.
+
+A user should be able to do the following:
+
+[ ] Create, Read, Update and Delete items in the store. Items should have fields for name, description, and quantity (along with any other fields you wish to add).
+
+[ ] Increase or decrease the quantity of an item in the store. For instance, if a user clicks "Buy", the quantity will decrease by one. If a user clicks "Restock", it will increment by a specified number.
+
+[ ] When the quantity of an item is reduced to 0, the item should say "Out of Stock". A user should not be able to reduce the quantity of an item below 0.
+
+Further Exploration
+
+[ ] Create a Cart component. When a user clicks "Buy", the specified item should be added to the cart.
+
+[ ] A user should be able to view and remove items from the cart.
+
+[ ] Create a widget that shows the number of items in the cart. This widget should be updated when items are added to the cart.
 
 ## Setup/Installation Requirements
 

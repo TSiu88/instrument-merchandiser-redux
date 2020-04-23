@@ -18,15 +18,6 @@ function InstrumentTile(props) {
   const finalCardStyle =
     props.quantity === 0 ? { ...cardStyle, ...outOfStockStyle } : cardStyle;
 
-  function handleQuantityDecrease(event) {
-    event.preventDefault();
-    props.onQuantityChanged({ quantity: event.target.quantity.value - 1 });
-  }
-  function handleQuantityIncrease(event) {
-    event.preventDefault();
-    // props.onQuantityChanged({quantity: event.target.quantity.value +1})
-  }
-
   return (
     <React.Fragment>
       <div style={finalCardStyle} className="card">
@@ -38,21 +29,23 @@ function InstrumentTile(props) {
         />
         <div className="card-body">
           {/* <p>Type: {props.type}</p> */}
-          <h5 onClick={() => props.whenInstrumentClicked(props.id)}>
-            <strong>{props.itemName}</strong>
-          </h5>
-          <p>
-            <em>{props.description}</em>
-          </p>
-          <p>
-            ${props.price} SKU#{props.id}
-          </p>
+          <div onClick={() => props.whenInstrumentClicked(props.id)}>
+            <h5>
+              <strong>{props.itemName}</strong>
+            </h5>
+            <p>
+              <em>{props.description}</em>
+            </p>
+            <p>
+              ${props.price} SKU#{props.id}
+            </p>
+          </div>
           <p>Items in Stock: {props.quantity}</p>
           <div className="input-group">
             <div className="input-group-prepend">
               <button
                 className="btn btn-secondary"
-                onClick={handleQuantityDecrease}
+                onClick={() => props.whenQuantityChanged(props.id, -1)}
               >
                 -
               </button>
@@ -61,7 +54,7 @@ function InstrumentTile(props) {
             <div className="input-group-append">
               <button
                 className="btn btn-secondary"
-                onClick={handleQuantityIncrease}
+                onClick={() => props.whenQuantityChanged(props.id, 1)}
               >
                 +
               </button>
@@ -76,6 +69,7 @@ function InstrumentTile(props) {
 
 InstrumentTile.propTypes = {
   whenInstrumentClicked: PropTypes.func,
+  whenQuantityChanged: PropTypes.func,
   type: PropTypes.string,
   itemName: PropTypes.string,
   description: PropTypes.string,

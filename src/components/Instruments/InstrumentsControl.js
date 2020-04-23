@@ -97,8 +97,16 @@ class InstrumentsControl extends React.Component {
     }
   };
 
-  handleChangingQuantity = (newQuantity) => {
-    this.setState({ quantity: newQuantity });
+  handleChangingQuantity = (id, newQuantity) => {
+    const quantityChanged = this.state.masterInstrumentList.filter(
+      (ticket) => ticket.id === id
+    )[0];
+    quantityChanged.quantity += newQuantity;
+    if (quantityChanged.quantity < 0) {
+      quantityChanged.quantity = 0;
+    }
+    this.setState({ quantityChanged: quantityChanged });
+    this.setState({ quantityChanged: false });
   };
 
   handleChangingSelectedInstrument = (id) => {
@@ -137,9 +145,13 @@ class InstrumentsControl extends React.Component {
         buttonText: "Return to Instruments List",
       };
     } else if (this.state.quantityChanged) {
+      // Quantity changing on "index" grid view
       return {
         component: (
-          <InstrumentsList onQuantityChanged={this.handleChangingQuantity} />
+          <InstrumentsList
+            onQuantityChanged={this.handleChangingQuantity}
+            instrumentList={this.state.masterInstrumentList}
+          />
         ),
       };
     } else {
@@ -148,6 +160,7 @@ class InstrumentsControl extends React.Component {
         component: (
           <InstrumentsList
             onInstrumentSelect={this.handleChangingSelectedInstrument}
+            onQuantityChanged={this.handleChangingQuantity}
             instrumentList={this.state.masterInstrumentList}
           />
         ),
