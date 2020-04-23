@@ -70,7 +70,7 @@ function InstrumentTile(props) {
               </button>
             </div>
           </div>
-          <button>Add to Cart</button>
+          {/* <button>Add to Cart</button> */}
         </div>
       </div>
     </React.Fragment>

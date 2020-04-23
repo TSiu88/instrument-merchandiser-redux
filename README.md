@@ -127,6 +127,8 @@ _Here is a preview of what the output looks like:_
 
 ## Known Bugs
 
+<!-- - The Add to Cart button has no functionality -->
+
 _There are currently no known bugs in this program_
 
 ## Support and contact details
