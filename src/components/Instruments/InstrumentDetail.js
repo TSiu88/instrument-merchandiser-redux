@@ -15,7 +15,7 @@ function InstrumentDetail(props) {
   return (
     <React.Fragment>
       <div style={detailsStyle}>
-        <h1>{instrument.itemName}"</h1>
+        <h1>{instrument.itemName}</h1>
         <img style={imageStyle} src={instrument.image} />
         <h4>Type of Instrument: {instrument.type}</h4>
         <p>Description: {instrument.description}</p>

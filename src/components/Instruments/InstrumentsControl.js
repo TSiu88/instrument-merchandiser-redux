@@ -147,6 +147,7 @@ class InstrumentsControl extends React.Component {
     this.setState({
       masterInstrumentList: editedInstrumentList,
       editInstrumentFormVisible: false,
+      selectedInstrument: null,
     });
   };
 
