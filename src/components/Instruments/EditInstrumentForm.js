@@ -9,7 +9,7 @@ function EditInstrumentForm(props) {
 
   function handleEditInstrumentFormSubmission(event) {
     event.preventDefault();
-    props.onAddInstrument({
+    props.onEditInstrument({
       id: props.ticket.id,
       type: event.target.type.value,
       itemName: event.target.itemName.value,
@@ -24,20 +24,20 @@ function EditInstrumentForm(props) {
     <React.Fragment>
       <form onSubmit={handleEditInstrumentFormSubmission}>
         <div className="form-group">
-          <label for="type">
+          <label htmlFor="type">
             Type:
             <input
               style={formStyle}
               className="form-control"
               type="text"
               name="type"
-              value={ticket.type}
+              defaultValue={ticket.type}
               required
             />
           </label>
         </div>
         <div className="form-group">
-          <label for="itemName">
+          <label htmlFor="itemName">
             Name:
             <input
               style={formStyle}
@@ -45,25 +45,25 @@ function EditInstrumentForm(props) {
               className="form-control"
               type="text"
               name="itemName"
-              value={ticket.name}
+              defaultValue={ticket.itemName}
               required
             />
           </label>
         </div>
         <div className="form-group">
-          <label for="description">
+          <label htmlFor="description">
             Description:
             <textarea
               style={formStyle}
               className="form-control"
               type="text"
               name="description"
-              value={ticket.description}
+              defaultValue={ticket.description}
             />
           </label>
         </div>
         <div className="form-group">
-          <label for="price">
+          <label htmlFor="price">
             Price:
             <input
               style={formStyle}
@@ -71,33 +71,33 @@ function EditInstrumentForm(props) {
               type="number"
               step="0.01"
               name="price"
-              value={ticket.price}
+              defaultValue={ticket.price}
               required
             />
           </label>
         </div>
         <div className="form-group">
-          <label for="quantity">
+          <label htmlFor="quantity">
             Quantity:
             <input
               style={formStyle}
               className="form-control"
               type="number"
               name="quantity"
-              value={ticket.quantity}
+              defaultValue={ticket.quantity}
               required
             />
           </label>
         </div>
         <div className="form-group">
-          <label for="image">
+          <label htmlFor="image">
             Image URL:
             <input
               style={formStyle}
               className="form-control"
               type="text"
               name="image"
-              value={ticket.image}
+              defaultValue={ticket.image}
             />
           </label>
         </div>
@@ -111,7 +111,7 @@ function EditInstrumentForm(props) {
 
 EditInstrumentForm.propTypes = {
   ticket: PropTypes.object,
-  onAddInstrument: PropTypes.func,
+  onEditInstrument: PropTypes.func,
 };
 
 export default EditInstrumentForm;

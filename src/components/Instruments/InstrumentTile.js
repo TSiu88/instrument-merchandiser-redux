@@ -18,6 +18,15 @@ function InstrumentTile(props) {
   const finalCardStyle =
     props.quantity === 0 ? { ...cardStyle, ...outOfStockStyle } : cardStyle;
 
+  const outOfStock = {
+    if (props.quantity <= 0){
+
+    }
+    else{
+      <p>Items in Stock: {props.quantity}</p>
+    }
+  }
+
   return (
     <React.Fragment>
       <div style={finalCardStyle} className="card">

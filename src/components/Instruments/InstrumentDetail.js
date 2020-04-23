@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function InstrumentDetail(props) {
-  const { instrument, onClickingDelete } = props;
+  const { instrument, onClickingDelete, onClickingEdit } = props;
 
   const imageStyle = {
     width: "400px",
@@ -21,9 +21,20 @@ function InstrumentDetail(props) {
         <p>Description: {instrument.description}</p>
         <p>Price: ${instrument.price}</p>
         <p>Quantity in Stock: {instrument.quantity}</p>
-        <button onClick={() => onClickingDelete(instrument.id)}>
-          Remove Instrument
-        </button>
+        <div className="btn-group">
+          <button
+            className="btn btn-light"
+            onClick={() => onClickingEdit(instrument.id)}
+          >
+            Edit Instrument
+          </button>
+          <button
+            className="btn btn-light"
+            onClick={() => onClickingDelete(instrument.id)}
+          >
+            Remove Instrument
+          </button>
+        </div>
         <hr />
       </div>
     </React.Fragment>
@@ -33,6 +44,7 @@ function InstrumentDetail(props) {
 InstrumentDetail.propTypes = {
   instrument: PropTypes.object,
   onClickingDelete: PropTypes.func,
+  onClickingEdit: PropTypes.func,
 };
 
 export default InstrumentDetail;

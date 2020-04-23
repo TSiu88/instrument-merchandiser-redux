@@ -1,6 +1,7 @@
 import React from "react";
 import InstrumentsList from "./InstrumentsList";
 import NewInstrumentForm from "./NewInstrumentForm";
+import EditInstrumentForm from "./EditInstrumentForm";
 import InstrumentDetail from "./InstrumentDetail";
 import { v4 } from "uuid";
 
@@ -98,6 +99,7 @@ class InstrumentsControl extends React.Component {
     if (this.state.selectedInstrument != null) {
       this.setState(() => ({
         selectedInstrument: null,
+        editInstrumentFormVisible: false,
       }));
     } else {
       this.setState((prevState) => ({
@@ -120,7 +122,7 @@ class InstrumentsControl extends React.Component {
       (ticket) => ticket.id === id
     )[0];
     quantityChanged.quantity += newQuantity;
-    if (quantityChanged.quantity < 0) {
+    if (quantityChanged.quantity <= 0) {
       quantityChanged.quantity = 0;
     }
     this.setState({ quantityChanged: quantityChanged });
@@ -129,13 +131,23 @@ class InstrumentsControl extends React.Component {
 
   handleChangingSelectedInstrument = (id) => {
     const selectedInstrument = this.state.masterInstrumentList.filter(
-      (ticket) => ticket.id === id
+      (instrument) => instrument.id === id
     )[0];
     this.setState({ selectedInstrument: selectedInstrument });
   };
 
-  handleEditingInstrument = () => {
-    //hmm
+  handleEditClick = () => {
+    this.setState({ editInstrumentFormVisible: true });
+  };
+
+  handleEditingInstrument = (editedInstrument) => {
+    const editedInstrumentList = this.state.masterInstrumentList
+      .filter((instrument) => instrument.id !== editedInstrument.id)
+      .concat(editedInstrument);
+    this.setState({
+      masterInstrumentList: editedInstrumentList,
+      editInstrumentFormVisible: false,
+    });
   };
 
   handleDeletingInstrument = (id) => {
@@ -151,9 +163,12 @@ class InstrumentsControl extends React.Component {
       // UPDATE: Edit instrument form view
       return {
         component: (
-          <EditInstrumentForm onEditInstrument={this.handleEditInstrument} />
+          <EditInstrumentForm
+            ticket={this.state.selectedInstrument}
+            onEditInstrument={this.handleEditingInstrument}
+          />
         ),
-        buttonText: "Return to Instruments List",
+        buttonText: "Cancel and return to Instruments List",
       };
     } else if (this.state.selectedInstrument != null) {
       // READ ONE: instrument detail view
@@ -163,6 +178,7 @@ class InstrumentsControl extends React.Component {
           <InstrumentDetail
             instrument={this.state.selectedInstrument}
             onClickingDelete={this.handleDeletingInstrument}
+            onClickingEdit={this.handleEditClick}
           />
         ),
         buttonText: "Return to Instruments List",

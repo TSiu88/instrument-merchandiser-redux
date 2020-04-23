@@ -32,7 +32,7 @@ function NewInstrumentForm(props) {
     <React.Fragment>
       <form onSubmit={handleNewInstrumentFormSubmission}>
         <div className="form-group">
-          <label for="type">
+          <label htmlFor="type">
             Type:
             <input
               style={formStyle}
@@ -45,7 +45,7 @@ function NewInstrumentForm(props) {
           </label>
         </div>
         <div className="form-group">
-          <label for="itemName">
+          <label htmlFor="itemName">
             Name:
             <input
               style={formStyle}
@@ -59,7 +59,7 @@ function NewInstrumentForm(props) {
           </label>
         </div>
         <div className="form-group">
-          <label for="description">
+          <label htmlFor="description">
             Description:
             <textarea
               style={formStyle}
@@ -71,7 +71,7 @@ function NewInstrumentForm(props) {
           </label>
         </div>
         <div className="form-group">
-          <label for="price">
+          <label htmlFor="price">
             Price:
             <input
               style={formStyle}
@@ -85,7 +85,7 @@ function NewInstrumentForm(props) {
           </label>
         </div>
         <div className="form-group">
-          <label for="quantity">
+          <label htmlFor="quantity">
             Quantity:
             <input
               style={formStyle}
@@ -98,7 +98,7 @@ function NewInstrumentForm(props) {
           </label>
         </div>
         <div className="form-group">
-          <label for="image">
+          <label htmlFor="image">
             Image URL:
             <input
               style={formStyle}
