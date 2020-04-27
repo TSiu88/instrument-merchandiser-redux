@@ -14,8 +14,8 @@ function EditInstrumentForm(props) {
       category: event.target.category.value,
       itemName: event.target.itemName.value,
       description: event.target.description.value,
-      price: event.target.price.value,
-      quantity: event.target.quantity.value,
+      price: parseInt(event.target.price.value),
+      quantity: parseInt(event.target.quantity.value),
       image: event.target.image.value,
     });
   }

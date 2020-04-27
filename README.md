@@ -88,6 +88,7 @@ _This page may be viewed by:_
 - _HTML_
 - _CSS_
 - _Javascript_
+- _Bootstrap_
 - _React_
 - _Jest_
 - _Babel_

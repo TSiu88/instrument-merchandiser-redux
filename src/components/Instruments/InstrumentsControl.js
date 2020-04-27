@@ -5,71 +5,6 @@ import EditInstrumentForm from "./EditInstrumentForm";
 import InstrumentDetail from "./InstrumentDetail";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { v4 } from "uuid";
-
-/* Seed Data */
-const masterInstrumentList = [
-  {
-    id: v4(),
-    category: "Guitar",
-    itemName: "The Guitarrro",
-    description: "hard-coded guitar",
-    price: 199.99,
-    quantity: 3,
-    image:
-      "https://images.reverb.com/image/upload/s--hCvA1Gix--/f_auto,t_large/v1559759198/bghge6q0jidiwxumevwe.png",
-  },
-  {
-    id: v4(),
-    category: "Piano",
-    itemName: "El Piano",
-    description: "hard-coded piano",
-    price: 899.99,
-    quantity: 0,
-    image:
-      "https://kawaius.com/wp-content/uploads/2018/04/Kawai-Novus-NV10.jpg",
-  },
-  {
-    id: v4(),
-    category: "Saxophone",
-    itemName: "The In-Stocksophone",
-    description: "this is an example of an in-stock item",
-    price: 699.99,
-    quantity: 8,
-    image:
-      "https://cdn.shoplightspeed.com/shops/612125/files/5871002/image.jpg",
-  },
-  {
-    id: v4(),
-    category: "Piano",
-    itemName: "El Piano Dos",
-    description: "hard-coded piano",
-    price: 899.99,
-    quantity: 1,
-    image:
-      "https://kawaius.com/wp-content/uploads/2018/04/Kawai-Novus-NV10.jpg",
-  },
-  {
-    id: v4(),
-    category: "Guitar",
-    itemName: "The Guitarrito",
-    description: "hard-coded guitar",
-    price: 199.99,
-    quantity: 3,
-    image:
-      "https://images.reverb.com/image/upload/s--hCvA1Gix--/f_auto,t_large/v1559759198/bghge6q0jidiwxumevwe.png",
-  },
-  {
-    id: v4(),
-    category: "Saxophone",
-    itemName: "The Out-of-Stocksophone",
-    description: "this is an example of an out-of-stock item.  It's over 9000!",
-    price: 9000.99,
-    quantity: 0,
-    image:
-      "https://cdn.shoplightspeed.com/shops/612125/files/5871002/image.jpg",
-  },
-];
 
 /* Styles */
 const controlStyle = {
@@ -82,9 +17,7 @@ const buttonStyle = {
   justifyContent: "center",
 };
 
-/* 
-Instruments Control
- */
+/* Instruments Control */
 class InstrumentsControl extends React.Component {
   constructor(props) {
     super(props);
