@@ -41,7 +41,6 @@ function EditInstrumentForm(props) {
             Name:
             <input
               style={formStyle}
-              style={formStyle}
               className="form-control"
               type="text"
               name="itemName"
@@ -71,6 +70,7 @@ function EditInstrumentForm(props) {
               type="number"
               step="0.01"
               name="price"
+              min={0}
               defaultValue={ticket.price}
               required
             />
@@ -85,7 +85,7 @@ function EditInstrumentForm(props) {
               type="number"
               name="quantity"
               defaultValue={ticket.quantity}
-              min="0"
+              min={0}
               required
             />
           </label>

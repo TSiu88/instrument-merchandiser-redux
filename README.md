@@ -1,8 +1,8 @@
 # _[Instrument Merchandiser](https://treblemakersmusic.netlify.app/)_
 
-#### _React Application with full CRUD Functionality, 04.22.2020_
+#### _React Application with full CRUD Functionality, 04.22.2020 - 04.27.2020_
 
-#### By _**Tiffany Siu, Krista Rutz, Andriy Veremyeyev**_
+#### By _**Tiffany Siu, Krista Rutz, Andriy Veremyeyev, Adela Darmansyah**_
 
 [![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
 ![LastCommit](https://img.shields.io/github/last-commit/KristaRutz/instrument-merchandiser)
@@ -133,10 +133,10 @@ _There are currently no known bugs in this program_
 
 ## Support and contact details
 
-_If there are any question or concerns please contact us at our emails: [Tiffany](mailto:tsiu88@gmail.com), [Krista](mailto:rutzkri000@gmail.com), and [Andriy](mailto:belyybrat@gmail.com). Thank you._
+_If there are any question or concerns please contact us at our emails: [Tiffany](mailto:tsiu88@gmail.com), [Krista](mailto:rutzkri000@gmail.com), [Andriy](mailto:belyybrat@gmail.com), and [Adela](mailto:adela.yohana@gmail.com). Thank you._
 
 ### License
 
 _This software is licensed under the MIT license_
 
-Copyright (c) 2020 **_Tiffany Siu, Krista Rutz, Andriy Veremyeyev_**
+Copyright (c) 2020 **_Tiffany Siu, Krista Rutz, Andriy Veremyeyev, Adela Darmansyah_**

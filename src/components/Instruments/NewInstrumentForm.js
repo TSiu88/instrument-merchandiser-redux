@@ -49,7 +49,6 @@ function NewInstrumentForm(props) {
             Name:
             <input
               style={formStyle}
-              style={formStyle}
               className="form-control"
               type="text"
               name="itemName"
@@ -79,6 +78,7 @@ function NewInstrumentForm(props) {
               type="number"
               step="0.01"
               name="price"
+              min= {0}
               placeholder="300.00"
               required
             />
@@ -92,6 +92,7 @@ function NewInstrumentForm(props) {
               className="form-control"
               type="number"
               name="quantity"
+              min={0}
               placeholder="5"
               required
             />

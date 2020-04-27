@@ -37,6 +37,7 @@ function InstrumentTile(props) {
           style={imageStyle}
           className=""
           src={props.image}
+          alt="Instrument"
         />
         <div className="card-body">
           {/* <p>Type: {props.type}</p> */}
@@ -87,7 +88,7 @@ InstrumentTile.propTypes = {
   quantity: PropTypes.number,
   image: PropTypes.string,
   id: PropTypes.string,
-  key: PropTypes.string,
+  // key: PropTypes.string,
 };
 
 export default InstrumentTile;

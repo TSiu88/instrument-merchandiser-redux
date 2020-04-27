@@ -109,7 +109,7 @@ class InstrumentsControl extends React.Component {
   };
 
   handleAddingNewInstrumentToList = (newInstrument) => {
-    if (newInstrument.image == "") {
+    if (newInstrument.image === "") {
       newInstrument.image = "./default-img.jpeg";
     }
     const newMasterInstrumentList = this.state.masterInstrumentList.concat({
