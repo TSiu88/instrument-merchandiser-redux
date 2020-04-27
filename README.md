@@ -1,12 +1,12 @@
-# _[Instrument Merchandiser](https://treblemakersmusic.netlify.app/)_
+# _[Instrument Merchandiser](https://github.com/TSiu88/instrument-merchandiser-redux)_
 
-#### _React Application with full CRUD Functionality, 04.22.2020 - 04.27.2020_
+#### _Refactor Previous React Project with Redux, 04.22.2020 - 04.27.2020_
 
 #### By _**Tiffany Siu, Krista Rutz, Andriy Veremyeyev, Adela Darmansyah**_
 
 [![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
-![LastCommit](https://img.shields.io/github/last-commit/KristaRutz/instrument-merchandiser)
-![Languages](https://img.shields.io/github/languages/top/KristaRutz/instrument-merchandiser)
+![LastCommit](https://img.shields.io/github/last-commit/TSiu88/instrument-merchandiser-redux)
+![Languages](https://img.shields.io/github/languages/top/TSiu88/instrument-merchandiser-redux)
 [![MIT license](https://img.shields.io/badge/License-MIT-orange.svg)](https://lbesson.mit-license.org/)
 
 ---
@@ -23,15 +23,16 @@
 3. [Notable Features](#notable-features)
 4. [Specifications](#specifications)
 5. [Screenshots](#screenshots)
-6. [Known Bugs](#known-bugs)
-7. [Support and Contact Details](#support-and-contact-details)
-8. [License](#license)
+6. [Test Case Example](#test-case-example)
+7. [Known Bugs](#known-bugs)
+8. [Support and Contact Details](#support-and-contact-details)
+9. [License](#license)
 
 ---
 
 ## Description
 
-This application was created for an assignment for the Epicodus Intro to Programming and C#/React course. This was to practice adding CRUD functionality to a React application.
+This application was created for an assignment for the Epicodus Intro to Programming and C#/React course. This was to practice refactoring a prior project done in vanilla React to include Redux for the shared state.
 
 For our application, this site is selling musical instruments. It is for both the seller (with the ability to add, edit, and delete instruments from the list) and a buyer (with the ability to buy instruments). This site currently does not have the authentication to differentiate between the two types of users and all users currently have the ability to do all functions due to this assignment being focused on learning how to code the different functionalities.
 
@@ -65,13 +66,14 @@ Further Exploration
 - _Webpack_
 - _Node.js_
 - _NPM_
+- _React Redux_
 
 ### Instructions
 
 _This page may be viewed by:_
 
 1. Download and install Node.js from the [official website](https://nodejs.org/en/download/)
-2. Clone the [repository](https://github.com/KristaRutz/instrument-merchandiser.git) from my [GitHub page](https://github.com/KristaRutz)
+2. Clone the [repository](https://github.com/TSiu88/instrument-merchandiser-redux.git) from my [GitHub page](https://github.com/TSiu88)
 3. Use a command line/Bash to move to the project directory with `cd project-directory`
 4. Run `npm install` to get all dependencies.
 5. Run `npm run start` to start up the program
@@ -82,6 +84,8 @@ _This page may be viewed by:_
 - _CSS_
 - _Javascript_
 - _React_
+- _Jest_
+- _Babel_
 - _ESLint_
 - _Babel_
 - _Markdown_
@@ -124,6 +128,17 @@ _Here is a preview of what the output looks like:_
 </details> -->
 
 <!-- _{Show pictures using ![alt text](image.jpg), show what library does as concisely as possible but don't need to explain how project solves problem from `code`_ -->
+
+## Test Case Example
+_Tests are done through Jest and are run from the command line prompt with `npm test`._
+
+<!-- _Some example tests:_
+
+![Snippet of an example test](img/tester1.png)
+
+![Snippet of an example result](img/tester2.png) -->
+
+<!-- _describe and show how to run tests with `code` examples}_ -->
 
 ## Known Bugs
 
