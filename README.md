@@ -44,6 +44,9 @@ For our application, this site is selling musical instruments. It is for both th
 
 ### Assignment Prompt
 
+<details>
+  <summary>Click to expand to view Assignment Prompt</summary>
+
 Build a website for selling merchandise for a band, author, sports team, or any other purveyor that interests you.
 
 A user should be able to do the following:
@@ -57,6 +60,8 @@ Further Exploration
 - [ ] Create a Cart component. When a user clicks "Buy", the specified item should be added to the cart.
 - [ ] A user should be able to view and remove items from the cart.
 - [ ] Create a widget that shows the number of items in the cart. This widget should be updated when items are added to the cart.
+
+</details>
 
 ## Setup/Installation Requirements
 

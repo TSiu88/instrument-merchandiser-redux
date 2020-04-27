@@ -131,7 +131,10 @@ class InstrumentsControl extends React.Component {
 
   handleChangingQuantity = (id, newQuantity) => {
     const quantityChanged = this.props.masterInstrumentList[id];
-    quantityChanged.quantity += newQuantity;
+    let changedquantity = parseInt(quantityChanged.quantity);
+    changedquantity += newQuantity;
+    quantityChanged.quantity = changedquantity;
+    //quantityChanged.quantity += newQuantity;
     if (quantityChanged.quantity <= 0) {
       quantityChanged.quantity = 0;
     }
