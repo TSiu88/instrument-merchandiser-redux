@@ -1,4 +1,4 @@
-# _[Instrument Merchandiser](https://github.com/TSiu88/instrument-merchandiser-redux)_
+# _[Instrument Merchandiser Redux Refactor](https://github.com/TSiu88/instrument-merchandiser-redux)_
 
 #### _Refactor Previous React Project with Redux, 04.22.2020 - 04.27.2020_
 

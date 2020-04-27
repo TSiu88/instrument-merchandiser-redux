@@ -69,13 +69,19 @@ class InstrumentsControl extends React.Component {
 
   handleChangingQuantity = (id, newQuantity) => {
     const quantityChanged = this.props.masterInstrumentList[id];
-    let changedquantity = parseInt(quantityChanged.quantity);
-    changedquantity += newQuantity;
-    quantityChanged.quantity = changedquantity;
-    //quantityChanged.quantity += newQuantity;
-    if (quantityChanged.quantity <= 0) {
-      quantityChanged.quantity = 0;
+    const { category, itemName, description, price, quantity, image } = quantityChanged;
+    const { dispatch } = this.props;
+    const action = {
+      type: 'ADD_OR_UPDATE_INSTRUMENT',
+      id: id,
+      category: category,
+      itemName: itemName,
+      description: description,
+      price: price,
+      quantity: ((quantity + newQuantity) < 0) ? 0 : (quantity + newQuantity),
+      image: image,
     }
+    dispatch(action);
     this.setState({ quantityChanged: quantityChanged });
     this.setState({ quantityChanged: false });
   };
