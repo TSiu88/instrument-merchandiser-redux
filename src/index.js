@@ -4,7 +4,8 @@ import "./index.css";
 import App from "./components/App";
 import * as serviceWorker from "./serviceWorker";
 import { createStore } from 'redux';
-import reducer from './reducers/instrument-list-reducer';
+// import reducer from './reducers/instrument-list-reducer';
+import rootReducer from './reducers/index-reducer';
 import { Provider } from 'react-redux';
 import { v4 } from 'uuid';
 
@@ -78,7 +79,7 @@ const initialInstrumentList = {
   },
 };
 
-const store = createStore(reducer, initialInstrumentList);
+const store = createStore(rootReducer, { masterInstrumentList: initialInstrumentList });
 store.subscribe(() => console.log(store.getState()));
 
 ReactDOM.render(

@@ -23,8 +23,8 @@ class InstrumentsControl extends React.Component {
     super(props);
     this.state = {
       selectedInstrument: null,
-      addNewInstrumentFormVisible: false,
-      editInstrumentFormVisible: false,
+      // addNewInstrumentFormVisible: false,
+      // editInstrumentFormVisible: false,
       quantityChanged: false,
     };
   }
@@ -36,9 +36,11 @@ class InstrumentsControl extends React.Component {
         editInstrumentFormVisible: false,
       }));
     } else {
-      this.setState((prevState) => ({
-        addNewInstrumentFormVisible: !prevState.addNewInstrumentFormVisible,
-      }));
+      const { dispatch } = this.props;
+      const action = {
+        type: 'TOGGLE_ADD_FORM'
+      }
+      dispatch(action);
     }
   };
 
@@ -49,7 +51,7 @@ class InstrumentsControl extends React.Component {
     const { dispatch } = this.props;
     const { id, category, itemName, description, price, quantity, image } = newInstrument;
     const action = {
-      type: 'ADD_INSTRUMENT',
+      type: 'ADD_OR_UPDATE_INSTRUMENT',
       id: id,
       category: category,
       itemName: itemName,
@@ -59,7 +61,10 @@ class InstrumentsControl extends React.Component {
       image: image,
     }
     dispatch(action);
-    this.setState({ addNewInstrumentFormVisible: false });
+    const action2 = {
+      type: 'TOGGLE_ADD_FORM'
+    }
+    dispatch(action2);
   };
 
   handleChangingQuantity = (id, newQuantity) => {
@@ -81,14 +86,18 @@ class InstrumentsControl extends React.Component {
   };
 
   handleEditClick = () => {
-    this.setState({ editInstrumentFormVisible: true });
+    const { dispatch } = this.props;
+    const action = {
+      type: 'TOGGLE_EDIT_FORM'
+    }
+    dispatch(action);
   };
 
   handleEditingInstrument = (editedInstrument) => {
     const { dispatch } = this.props;
     const { id, category, itemName, description, price, quantity, image } = editedInstrument;
     const action = {
-      type: 'ADD_INSTRUMENT',
+      type: 'ADD_OR_UPDATE_INSTRUMENT',
       id: id,
       category: category,
       itemName: itemName,
@@ -98,8 +107,12 @@ class InstrumentsControl extends React.Component {
       image: image,
     }
     dispatch(action);
+    const action2 = {
+      type: 'TOGGLE_EDIT_FORM'
+    }
+    dispatch(action2);
     this.setState({
-      editInstrumentFormVisible: false,
+      // editInstrumentFormVisible: false,
       selectedInstrument: null,
     });
   };
@@ -115,7 +128,7 @@ class InstrumentsControl extends React.Component {
   };
 
   setVisibility = () => {
-    if (this.state.editInstrumentFormVisible) {
+    if (this.props.editInstrumentFormVisible) {
       // UPDATE: Edit instrument form view
       return {
         component: (
@@ -139,7 +152,7 @@ class InstrumentsControl extends React.Component {
         ),
         buttonText: "Return to Instruments List",
       };
-    } else if (this.state.addNewInstrumentFormVisible) {
+    } else if (this.props.addNewInstrumentFormVisible) {
       // CREATE: Add new instrument form view
       return {
         component: (
@@ -200,7 +213,9 @@ InstrumentsControl.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    masterInstrumentList: state
+    masterInstrumentList: state.masterInstrumentList,
+    addNewInstrumentFormVisible: state.addFormVisible,
+    editInstrumentFormVisible: state.editFormVisible
   }
 }
 
