@@ -1,7 +1,7 @@
 export default (state = {}, action) => {
   const { id, category, itemName, description, price, quantity, image } = action;
   switch (action.type) {
-    case 'ADD_INSTRUMENT':
+    case 'ADD_OR_UPDATE_INSTRUMENT':
       return Object.assign({}, state, {
         [id]: {
           id: id,

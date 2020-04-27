@@ -47,7 +47,7 @@ describe('instrumentListReducer', () => {
   test('Should successfully add new instrument data to masterInstrumentList', () => {
     const { id, category, itemName, description, price, quantity, image } = instrumentData;
     action = {
-      type: 'ADD_INSTRUMENT',
+      type: 'ADD_OR_UPDATE_INSTRUMENT',
       id: id,
       category: category,
       itemName: itemName,
@@ -91,7 +91,7 @@ describe('instrumentListReducer', () => {
 
   test('Should successfully update an instrument data', () => {
     action = {
-      type: 'ADD_INSTRUMENT',
+      type: 'ADD_OR_UPDATE_INSTRUMENT',
       id: firstId,
       category: "Cello",
       itemName: "String-a-llo",
