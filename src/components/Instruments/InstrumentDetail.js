@@ -18,7 +18,7 @@ function InstrumentDetail(props) {
       <div style={detailsStyle}>
         <h1>{instrument.itemName}</h1>
         <img style={imageStyle} src={instrument.image} alt="Instrument"/>
-        <h4>Type of Instrument: {instrument.type}</h4>
+        <h4>Category of Instrument: {instrument.category}</h4>
         <p>SKU#: {instrument.id}</p>
         <p>Description: {instrument.description}</p>
         <p>Price: ${instrument.price}</p>

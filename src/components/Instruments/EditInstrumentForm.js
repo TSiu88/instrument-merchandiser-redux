@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function EditInstrumentForm(props) {
-  const { ticket } = props;
+  const { instrument } = props;
   const formStyle = {
     width: "300px",
   };
@@ -10,8 +10,8 @@ function EditInstrumentForm(props) {
   function handleEditInstrumentFormSubmission(event) {
     event.preventDefault();
     props.onEditInstrument({
-      id: props.ticket.id,
-      type: event.target.type.value,
+      id: props.instrument.id,
+      category: event.target.category.value,
       itemName: event.target.itemName.value,
       description: event.target.description.value,
       price: event.target.price.value,
@@ -24,14 +24,14 @@ function EditInstrumentForm(props) {
     <React.Fragment>
       <form onSubmit={handleEditInstrumentFormSubmission}>
         <div className="form-group">
-          <label htmlFor="type">
-            Type:
+          <label htmlFor="category">
+            Category:
             <input
               style={formStyle}
               className="form-control"
               type="text"
-              name="type"
-              defaultValue={ticket.type}
+              name="category"
+              defaultValue={instrument.category}
               required
             />
           </label>
@@ -44,7 +44,7 @@ function EditInstrumentForm(props) {
               className="form-control"
               type="text"
               name="itemName"
-              defaultValue={ticket.itemName}
+              defaultValue={instrument.itemName}
               required
             />
           </label>
@@ -57,7 +57,7 @@ function EditInstrumentForm(props) {
               className="form-control"
               type="text"
               name="description"
-              defaultValue={ticket.description}
+              defaultValue={instrument.description}
             />
           </label>
         </div>
@@ -71,7 +71,7 @@ function EditInstrumentForm(props) {
               step="0.01"
               name="price"
               min={0}
-              defaultValue={ticket.price}
+              defaultValue={instrument.price}
               required
             />
           </label>
@@ -84,7 +84,7 @@ function EditInstrumentForm(props) {
               className="form-control"
               type="number"
               name="quantity"
-              defaultValue={ticket.quantity}
+              defaultValue={instrument.quantity}
               min={0}
               required
             />
@@ -98,7 +98,7 @@ function EditInstrumentForm(props) {
               className="form-control"
               type="text"
               name="image"
-              defaultValue={ticket.image}
+              defaultValue={instrument.image}
             />
           </label>
         </div>
@@ -111,7 +111,7 @@ function EditInstrumentForm(props) {
 }
 
 EditInstrumentForm.propTypes = {
-  ticket: PropTypes.object,
+  instrument: PropTypes.object,
   onEditInstrument: PropTypes.func,
 };
 

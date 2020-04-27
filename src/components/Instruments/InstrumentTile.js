@@ -40,7 +40,7 @@ function InstrumentTile(props) {
           alt="Instrument"
         />
         <div className="card-body">
-          {/* <p>Type: {props.type}</p> */}
+          {/* <p>Category: {props.category}</p> */}
           <div onClick={() => props.whenInstrumentClicked(props.id)}>
             <h5>
               <strong>{props.itemName}</strong>
@@ -81,7 +81,7 @@ function InstrumentTile(props) {
 InstrumentTile.propTypes = {
   whenInstrumentClicked: PropTypes.func,
   whenQuantityChanged: PropTypes.func,
-  type: PropTypes.string,
+  category: PropTypes.string,
   itemName: PropTypes.string,
   description: PropTypes.string,
   price: PropTypes.number,

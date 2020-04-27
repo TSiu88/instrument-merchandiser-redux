@@ -21,7 +21,7 @@ function InstrumentsList(props) {
             whenInstrumentClicked={props.onInstrumentSelect}
             whenQuantityChanged={props.onQuantityChanged}
             image={instrument.image}
-            type={instrument.type}
+            category={instrument.category}
             itemName={instrument.itemName}
             description={instrument.description}
             price={instrument.price}

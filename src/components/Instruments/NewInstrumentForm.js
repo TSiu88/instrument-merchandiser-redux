@@ -10,7 +10,7 @@ function NewInstrumentForm(props) {
   function handleNewInstrumentFormSubmission(event) {
     event.preventDefault();
     console.log({
-      type: event.target.type.value,
+      category: event.target.category.value,
       itemName: event.target.itemName.value,
       description: event.target.description.value,
       price: event.target.price.value,
@@ -18,7 +18,7 @@ function NewInstrumentForm(props) {
       image: event.target.image.value,
     });
     props.onAddInstrument({
-      type: event.target.type.value,
+      category: event.target.category.value,
       itemName: event.target.itemName.value,
       description: event.target.description.value,
       price: event.target.price.value,
@@ -32,13 +32,13 @@ function NewInstrumentForm(props) {
     <React.Fragment>
       <form onSubmit={handleNewInstrumentFormSubmission}>
         <div className="form-group">
-          <label htmlFor="type">
-            Type:
+          <label htmlFor="category">
+            Category:
             <input
               style={formStyle}
               className="form-control"
               type="text"
-              name="type"
+              name="category"
               placeholder="Guitar, Piano, etc."
               required
             />

@@ -9,7 +9,7 @@ import { v4 } from "uuid";
 const masterInstrumentList = [
   {
     id: v4(),
-    type: "Guitar",
+    category: "Guitar",
     itemName: "The Guitarrro",
     description: "hard-coded guitar",
     price: 199.99,
@@ -19,7 +19,7 @@ const masterInstrumentList = [
   },
   {
     id: v4(),
-    type: "Piano",
+    category: "Piano",
     itemName: "El Piano",
     description: "hard-coded piano",
     price: 899.99,
@@ -29,7 +29,7 @@ const masterInstrumentList = [
   },
   {
     id: v4(),
-    type: "Saxophone",
+    category: "Saxophone",
     itemName: "The In-Stocksophone",
     description: "this is an example of an in-stock item",
     price: 699.99,
@@ -39,7 +39,7 @@ const masterInstrumentList = [
   },
   {
     id: v4(),
-    type: "Piano",
+    category: "Piano",
     itemName: "El Piano Dos",
     description: "hard-coded piano",
     price: 899.99,
@@ -49,7 +49,7 @@ const masterInstrumentList = [
   },
   {
     id: v4(),
-    type: "Guitar",
+    category: "Guitar",
     itemName: "The Guitarrito",
     description: "hard-coded guitar",
     price: 199.99,
@@ -59,7 +59,7 @@ const masterInstrumentList = [
   },
   {
     id: v4(),
-    type: "Saxophone",
+    category: "Saxophone",
     itemName: "The Out-of-Stocksophone",
     description: "this is an example of an out-of-stock item.  It's over 9000!",
     price: 9000.99,
@@ -168,7 +168,7 @@ class InstrumentsControl extends React.Component {
       return {
         component: (
           <EditInstrumentForm
-            ticket={this.state.selectedInstrument}
+            instrument={this.state.selectedInstrument}
             onEditInstrument={this.handleEditingInstrument}
           />
         ),
