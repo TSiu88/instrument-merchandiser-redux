@@ -16,7 +16,7 @@ function InstrumentsList(props) {
   return (
     <React.Fragment>
       <div style={instrumentsStyle}>
-        {props.instrumentList.map((instrument) => (
+        {Object.values(props.instrumentList).map((instrument) => (
           <InstrumentTile
             whenInstrumentClicked={props.onInstrumentSelect}
             whenQuantityChanged={props.onQuantityChanged}
@@ -36,7 +36,7 @@ function InstrumentsList(props) {
 }
 
 InstrumentsList.propTypes = {
-  instrumentList: PropTypes.array,
+  instrumentList: PropTypes.object,
   onInstrumentSelect: PropTypes.func,
   onQuantityChanged: PropTypes.func,
 };

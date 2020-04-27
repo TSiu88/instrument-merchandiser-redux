@@ -3,6 +3,8 @@ import InstrumentsList from "./InstrumentsList";
 import NewInstrumentForm from "./NewInstrumentForm";
 import EditInstrumentForm from "./EditInstrumentForm";
 import InstrumentDetail from "./InstrumentDetail";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import { v4 } from "uuid";
 
 /* Seed Data */
@@ -87,7 +89,6 @@ class InstrumentsControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      masterInstrumentList: masterInstrumentList,
       selectedInstrument: null,
       addNewInstrumentFormVisible: false,
       editInstrumentFormVisible: false,
@@ -112,18 +113,24 @@ class InstrumentsControl extends React.Component {
     if (newInstrument.image === "") {
       newInstrument.image = "./default-img.jpeg";
     }
-    const newMasterInstrumentList = this.state.masterInstrumentList.concat({
-      id: v4(),
-      ...newInstrument,
-    });
-    this.setState({ masterInstrumentList: newMasterInstrumentList });
+    const { dispatch } = this.props;
+    const { id, category, itemName, description, price, quantity, image } = newInstrument;
+    const action = {
+      type: 'ADD_INSTRUMENT',
+      id: id,
+      category: category,
+      itemName: itemName,
+      description: description,
+      price: price,
+      quantity: quantity,
+      image: image,
+    }
+    dispatch(action);
     this.setState({ addNewInstrumentFormVisible: false });
   };
 
   handleChangingQuantity = (id, newQuantity) => {
-    const quantityChanged = this.state.masterInstrumentList.filter(
-      (ticket) => ticket.id === id
-    )[0];
+    const quantityChanged = this.props.masterInstrumentList[id];
     quantityChanged.quantity += newQuantity;
     if (quantityChanged.quantity <= 0) {
       quantityChanged.quantity = 0;
@@ -133,9 +140,7 @@ class InstrumentsControl extends React.Component {
   };
 
   handleChangingSelectedInstrument = (id) => {
-    const selectedInstrument = this.state.masterInstrumentList.filter(
-      (instrument) => instrument.id === id
-    )[0];
+    const selectedInstrument = this.props.masterInstrumentList[id];
     this.setState({ selectedInstrument: selectedInstrument });
   };
 
@@ -144,21 +149,32 @@ class InstrumentsControl extends React.Component {
   };
 
   handleEditingInstrument = (editedInstrument) => {
-    const editedInstrumentList = this.state.masterInstrumentList
-      .filter((instrument) => instrument.id !== editedInstrument.id)
-      .concat(editedInstrument);
+    const { dispatch } = this.props;
+    const { id, category, itemName, description, price, quantity, image } = editedInstrument;
+    const action = {
+      type: 'ADD_INSTRUMENT',
+      id: id,
+      category: category,
+      itemName: itemName,
+      description: description,
+      price: price,
+      quantity: quantity,
+      image: image,
+    }
+    dispatch(action);
     this.setState({
-      masterInstrumentList: editedInstrumentList,
       editInstrumentFormVisible: false,
       selectedInstrument: null,
     });
   };
 
   handleDeletingInstrument = (id) => {
-    const newMasterInstrumentList = this.state.masterInstrumentList.filter(
-      (instrument) => instrument.id !== id
-    );
-    this.setState({ masterInstrumentList: newMasterInstrumentList });
+    const { dispatch } = this.props;
+    const action = {
+      type: 'DELETE_INSTRUMENT',
+      id: id
+    }
+    dispatch(action);
     this.setState({ selectedInstrument: null });
   };
 
@@ -203,7 +219,7 @@ class InstrumentsControl extends React.Component {
         component: (
           <InstrumentsList
             onQuantityChanged={this.handleChangingQuantity}
-            instrumentList={this.state.masterInstrumentList}
+            instrumentList={this.props.masterInstrumentList}
           />
         ),
       };
@@ -214,7 +230,7 @@ class InstrumentsControl extends React.Component {
           <InstrumentsList
             onInstrumentSelect={this.handleChangingSelectedInstrument}
             onQuantityChanged={this.handleChangingQuantity}
-            instrumentList={this.state.masterInstrumentList}
+            instrumentList={this.props.masterInstrumentList}
           />
         ),
         buttonText: "Add Instrument",
@@ -241,5 +257,17 @@ class InstrumentsControl extends React.Component {
     );
   }
 }
+
+InstrumentsControl.propTypes = {
+  masterInstrumentList: PropTypes.object
+};
+
+const mapStateToProps = state => {
+  return {
+    masterInstrumentList: state
+  }
+}
+
+InstrumentsControl = connect(mapStateToProps)(InstrumentsControl);
 
 export default InstrumentsControl;
