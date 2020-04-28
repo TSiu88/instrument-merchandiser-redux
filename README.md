@@ -32,11 +32,11 @@
 
 ## Description
 
-This application was created for an assignment for the Epicodus Intro to Programming and C#/React course. This was to practice refactoring a prior project done in vanilla React to include Redux for the shared state.
+This application was created for an assignment for the Epicodus Intro to Programming and C#/React course. This was to practice refactoring a prior project done in vanilla React to include Redux for the shared state.  All CRUD functionality was refactored into Redux except functions related to the details page.
 
 For our application, this site is selling musical instruments. It is for both the seller (with the ability to add, edit, and delete instruments from the list) and a buyer (with the ability to buy instruments). This site currently does not have the authentication to differentiate between the two types of users and all users currently have the ability to do all functions due to this assignment being focused on learning how to code the different functionalities.
 
-**A deployed version of this application can be found [here](https://treblemakersmusic.netlify.app).**
+**A deployed version of the original application can be found [here](https://treblemakersmusic.netlify.app).**
 
 ### Component Diagram
 
@@ -97,22 +97,24 @@ _This page may be viewed by:_
 
 ## Notable Features
 
-<!-- _features that make project stand out_ -->
+The quantity buttons are done on the main page and does not require going into the edit form to be changed.
 
 ## Specifications
 
-<!-- <details>
+<details>
   <summary>Click to expand to view Specifications</summary>
 
 | Specification | Input | Output |
 | :-------------     | :------------- | :------------- |
-| The program displays welcome message and menu with prices | Application start | Welcome message and menu displayed |
-| The program displays special deals in readable format | Application start | Special deals displayed ("Buy 2, get 1 free" "3 for $5") |
-| The program takes input of user that is not an integer, then assume 0 ordered | Bread="aaa", Pastry="" | Bread=0, Pastry=0 |
-| The program takes number of loaves of bread and pastries and displays totals | Bread=4, Pastry=4 | Bread=$20, Pastry=$8, Total=$28 |
-| If input qualifies for special deals, costs calculated using discounted price | Bread=3, Pastry=3 | Bread=$10, Pastry=$5, Total=$15 |
+| The program displays main page with seed data and button to add instruments or change quantities of instruments | Application start | Main page displayed |
+| The program displays form to add instrument when button clicked | Click on Add instrument | Application toggles to add instrument form and able to add details for instrument to be added and is added to list when submitted |
+| The program displays details for an instrument and has buttons for editing or deleting | Click on picture or information for an instrument  | Toggles display of all information including ID with buttons to edit or delete |
+| The program allows all fields to be edited | Click on edit from details | Toggles form for editing with fields already containing current info |
+| The program allows an instrument to be deleted | Click on delete from details | Instrument removed from list and view returns to main page |
+| The program allows an instrument quantity to be changed from the main page without changing from main page | Click on + or - buttons on an instrument | Instrument quantity changes by 1 depending on button clicked |
+| The program does not allow quantity to be below zero | Click on - when quantity at zero or edit to be less than zero | Program does not go below zero or gives error that it can't be set below zero |
 
-</details> -->
+</details>
 
 ## Screenshots
 
@@ -147,9 +149,9 @@ _Tests are done through Jest and are run from the command line prompt with `npm 
 
 ## Known Bugs
 
-<!-- - The Add to Cart button has no functionality -->
+- Return button from editing without submitting causes an error, possibly due to editInstrumentFormVisible not changing to false and trying to draw screen with null instrument
 
-_There are currently no known bugs in this program_
+<!-- _There are currently no known bugs in this program_ -->
 
 ## Support and contact details
 

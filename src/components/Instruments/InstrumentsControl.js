@@ -35,7 +35,7 @@ class InstrumentsControl extends React.Component {
         selectedInstrument: null,
         editInstrumentFormVisible: false,
       }));
-    } else {
+    }else {
       const { dispatch } = this.props;
       const action = {
         type: 'TOGGLE_ADD_FORM'
@@ -82,8 +82,8 @@ class InstrumentsControl extends React.Component {
       image: image,
     }
     dispatch(action);
-    this.setState({ quantityChanged: quantityChanged });
-    this.setState({ quantityChanged: false });
+    //this.setState({ quantityChanged: quantityChanged });
+    //this.setState({ quantityChanged: false });
   };
 
   handleChangingSelectedInstrument = (id) => {
@@ -118,7 +118,7 @@ class InstrumentsControl extends React.Component {
     }
     dispatch(action2);
     this.setState({
-      // editInstrumentFormVisible: false,
+      editInstrumentFormVisible: false,
       selectedInstrument: null,
     });
   };
